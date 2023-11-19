@@ -1,9 +1,13 @@
+import { config } from 'dotenv'
 import { AppDataSource } from './db'
 import { app } from './server'
 
+config()
+const PORT = process.env.PORT ?? 3000
+
 async function main (): Promise<undefined> {
-  app.listen(3000, () => {
-    console.log('server in port 3000')
+  app.listen(PORT, () => {
+    console.log(`server in port ${PORT}`)
   })
 
   try {
