@@ -1,9 +1,9 @@
 import { config } from 'dotenv'
 import { AppDataSource } from './db'
 import { app } from './server'
-
 config()
-const PORT = process.env.PORT ?? 3000
+
+const PORT = process.env.PORT ?? 3001
 
 async function main (): Promise<undefined> {
   app.listen(PORT, () => {

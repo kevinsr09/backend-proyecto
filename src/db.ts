@@ -1,18 +1,22 @@
 import { DataSource } from 'typeorm'
 import 'reflect-metadata'
 import { Encuesta } from './entities/encuesta'
+import { config } from 'dotenv'
+import { PanesFav } from './entities/PanesFav'
+import { PanaderiaPref } from './entities/RazonesPrefPanaderia'
+config()
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
-  host: 'ep-holy-frog-41641602.us-east-2.aws.neon.fl0.io',
+  host: process.env.DB_HOST,
   port: 5432,
-  username: 'fl0user',
-  password: 'hu9J3nZeqpoM',
-  database: 'proyecto',
+  username: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
   synchronize: true,
   logging: true,
   ssl: { rejectUnauthorized: false },
-  entities: [Encuesta],
+  entities: [Encuesta, PanesFav, PanaderiaPref],
   subscribers: [],
   migrations: []
 })

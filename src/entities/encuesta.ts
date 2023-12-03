@@ -1,7 +1,7 @@
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
-import { acepofertActual, opinPanadArea, prefComprPan } from '../types'
+import { acepofertActual, opinPanadArea } from '../types'
 
-@Entity({ name: 'encuestas' })
+@Entity({ name: 'encuesta' })
 export class Encuesta extends BaseEntity {
   @PrimaryGeneratedColumn()
     id: number
@@ -17,24 +17,12 @@ export class Encuesta extends BaseEntity {
   @Column({
     nullable: true
   })
-    panes_favoritos: string
-
-  @Column({
-    type: 'enum',
-    enum: ['Ambos', 'Panaderia local', 'Tienda de comestibles'],
-    nullable: true
-  })
-    preferencia_compra_pan: prefComprPan
+    lugar_pref_compra_pan: string
 
   @Column({
     nullable: true
   })
     opinion_panaderias_area: opinPanadArea
-
-  @Column({
-    nullable: true
-  })
-    razones_pref_panaderias_locales: string
 
   @Column({
     nullable: true
